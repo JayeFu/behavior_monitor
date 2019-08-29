@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TempWindow</class>
+ <widget class="QMainWindow" name="TempWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QGraphicsView" name="FieldView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>900</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="NoBrush">
+      <color alpha="255">
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </brush>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="CameraView">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>40</y>
+      <width>320</width>
+      <height>240</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>300</y>
+      <width>301</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="Command_Ver">
+     <item>
+      <layout class="QVBoxLayout" name="Robot1_Ver">
+       <item>
+        <layout class="QHBoxLayout" name="Robot1_Des_Hor">
+         <item>
+          <widget class="QLabel" name="Robot1">
+           <property name="text">
+            <string>Robot1</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Robot1_Con">
+           <property name="text">
+            <string>Connect</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Robot1_Cam">
+           <property name="text">
+            <string>Show Camera</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="Robot1_Pos_Hor">
+         <item>
+          <widget class="QLabel" name="Robot1_X">
+           <property name="text">
+            <string>X(m) :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot1_Xnum">
+           <property name="text">
+            <string>0.0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot1_Y">
+           <property name="text">
+            <string>Y(m):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot1_Ynum">
+           <property name="text">
+            <string>0.0</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="Robot2_Ver">
+       <item>
+        <layout class="QHBoxLayout" name="Robot2_Des_Hor">
+         <item>
+          <widget class="QLabel" name="Robot2">
+           <property name="text">
+            <string>Robot2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Robot2_Con">
+           <property name="text">
+            <string>Connect</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Robot2_Cam">
+           <property name="text">
+            <string>Show Camera</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="Robot2_Pos_Hor">
+         <item>
+          <widget class="QLabel" name="Robot2_X">
+           <property name="text">
+            <string>X(m) :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot2_Xnum">
+           <property name="text">
+            <string>0.0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot2_Y">
+           <property name="text">
+            <string>Y(m):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot2_Ynum">
+           <property name="text">
+            <string>0.0</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="Robot3_Ver">
+       <item>
+        <layout class="QHBoxLayout" name="Robot3_Des_Hor">
+         <item>
+          <widget class="QLabel" name="Robot3">
+           <property name="text">
+            <string>Robot3</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Robot3_Con">
+           <property name="text">
+            <string>Connect</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Robot3_Cam">
+           <property name="text">
+            <string>Show Camera</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="Robot3_Pos_Hor">
+         <item>
+          <widget class="QLabel" name="Robot3_X">
+           <property name="text">
+            <string>X(m) :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot3_Xnum">
+           <property name="text">
+            <string>0.0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot3_Y">
+           <property name="text">
+            <string>Y(m):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot3_Ynum">
+           <property name="text">
+            <string>0.0</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="Robot4_Ver">
+       <item>
+        <layout class="QHBoxLayout" name="Robot4_Des_Hor">
+         <item>
+          <widget class="QLabel" name="Robot4">
+           <property name="text">
+            <string>Robot4</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Robot4_Con">
+           <property name="text">
+            <string>Connect</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Robot4_Cam">
+           <property name="text">
+            <string>Show Camera</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="Robot4_Pos_Hor">
+         <item>
+          <widget class="QLabel" name="Robot4_X">
+           <property name="text">
+            <string>X(m) :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot4_Xnum">
+           <property name="text">
+            <string>0.0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot4_Y">
+           <property name="text">
+            <string>Y(m):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Robot4_Ynum">
+           <property name="text">
+            <string>0.0</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuOption">
+    <property name="title">
+     <string>Option</string>
+    </property>
+    <addaction name="actionInitialisation"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuOption"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionInitialisation">
+   <property name="text">
+    <string>Initialisation</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
