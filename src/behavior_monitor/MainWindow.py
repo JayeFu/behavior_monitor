@@ -4,6 +4,7 @@ import rospy
 import cv2
 import rospkg
 import os
+import math
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -16,7 +17,6 @@ class MonitorWindow(Ui_TempWindow):
         self._robot_prefix = "robot"
         self.subCon = subContainer()
         rp = rospkg.RosPack()
-        # img_path = os.path.join(rp.get_path('behavior_monitor'), "media", "simple_field.png")
         img_path = os.path.join(rp.get_path('behavior_monitor'), "media", "simple_field.png")
         self.raw_field = cv2.imread(img_path)
         self.marked_field = None
@@ -44,10 +44,10 @@ class MonitorWindow(Ui_TempWindow):
 
     def refresh(self):
         # TODO: refresh camera and field
-        for rname, rpos in self.subCon.pos.iteritems():
+        for rname, rpos in self.subCon.get_pos().iteritems():
             rospy.loginfo("IN REFRESH: {}'s pos is x:{}, y:{}".format(rname, rpos['x'], rpos['y']))
-        for rbname, rbpos in self.subCon.ballpos.iteritems():
-            rospy.loginfo("IN REFRESH: {}'s BALL pos is x:{}, y:{}".format(rbname, rbpos['x'], rbpos['y']))
+        for rbname, rbpos in self.subCon.get_r_ballpos().iteritems():
+            rospy.loginfo("IN REFRESH: {}'s seen BALL pos is x:{}, y:{}".format(rbname, rbpos['x'], rbpos['y']))
         self.field_refresh()
 
     def connect_robot(self, name):
@@ -85,6 +85,30 @@ class MonitorWindow(Ui_TempWindow):
         robot_width = 4
         for rname, rpos in pos.iteritems():
             cv2.circle(field, self.map_origin(rpos), robot_radius, robot_color, robot_width)
+            self.draw_robot_dir(field, rpos)
+            self.draw_robot_name(field, rpos, rname)
+
+
+    def draw_robot_dir(self, field, rpos):
+        dir_color = (0, 0, 255)
+        dir_width = 4
+        dir_dst = dict()
+        theta = rpos['t']
+        costheta = math.cos(theta)
+        sintheta = math.cos(theta)
+        dir_dst['x'] = rpos['x'] + costheta * 0.5
+        dir_dst['y'] = rpos['y'] + sintheta * 0.5
+        cv2.line(field, self.map_origin(rpos), self.map_origin(dir_dst), dir_color, dir_width)
+
+    def draw_robot_name(self, field, rpos, rname):
+        name_pos = dict()
+        name_pos['x'] = rpos['x'] - 0.25
+        name_pos['y'] = rpos['y'] + 0.25
+        name_font = cv2.FONT_HERSHEY_SIMPLEX
+        name_size = 0.5
+        name_color = (0, 0, 255)
+        name_width = 2
+        cv2.putText(field, rname, self.map_origin(name_pos), name_font, name_size, name_color)
 
     def draw_balls(self, field, pos):
         ball_radius = 10
@@ -108,6 +132,6 @@ class MonitorWindow(Ui_TempWindow):
         center_y = center['y']
         center_x = center_x * 100
         center_y = center_y * 100
-        corner_x = int(450 + center_y)
-        corner_y = int(300 - center_x)
+        corner_x = int(450 + center_x)
+        corner_y = int(300 - center_y)
         return (corner_x, corner_y)
